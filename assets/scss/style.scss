@@ -1,0 +1,184 @@
+/**
+ * (c) ResTrans 2016 / Apache License 2.0
+ * INTRODUCTION & DOWNLOAD: http://get.restrans.com/
+ */
+$base-font-size: 14px; //基础文字大小
+// 基本颜色
+$white: #fff;
+$black: #212121;
+$grey: #9e9e9e;
+$light-grey: #e0e0e0;
+$dark-grey: #616161;
+$blue: #0091ea;
+$light-blue: #03a9f4;
+$dark-blue: #0277bd;
+$red: #d01716;
+$light-red: #e51c23;
+$dark-red: #b0120a;
+$green: #64dd17;
+$light-green: #5af158;
+$dark-green: #12c700;
+$page-background: #fff59d;
+$orange: #f57c00;
+$light-orange: #ff9800;
+$dark-orange: #e65100;
+$purple: #7b1fa2;
+$light-purple: #ab47bc;
+$dark-purple: #4a148c;
+// 基本样式
+* {
+  font:{
+    size: $base-font-size;
+    family: "Microsoft Yahei", "Source Han Sans", "Hiragino Sans GB", Arial, sans-serif;
+  }
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  @at-root body {
+    display: table;
+    text-shadow: 1px 1px 1px $white, 1px 1px 2px $dark-grey;
+  }
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 980px;
+  margin: 0 auto;
+}
+.main {
+  padding: 45px 0;
+}
+.clearfix {
+  clear: both;
+}
+.pleft {
+  float: left;
+}
+.pright {
+  float: right;
+}
+.table {
+  display: table;
+}
+.table-cell {
+  display: table-cell;
+}
+ul {
+  list-style: none;
+}
+.show {
+  display: block;
+}
+.hidden {
+  display: none !important;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+  background: $light-grey;
+}
+::-webkit-scrollbar-thumb {
+  background: $grey;
+  border-radius: 10px;
+}
+input:-webkit-autofill {
+  color: $black;
+}
+textarea {
+  /** ie */
+  overflow-y: hidden !important;
+}
+//引入字体（图标）
+@font-face {font-family: "icon";
+  src: url('iconfont/icon/iconfont.eot'); /* IE9*/
+  src: url('iconfont/icon/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont/icon/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('iconfont/icon/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('iconfont/icon/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+//引入字体（Logo）
+@font-face {font-family: "restrans";
+  src: url('iconfont/logo/logo.eot'); /* IE9*/
+  src: url('iconfont/logo/logo.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont/logo/logo.woff') format('woff'), /* chrome、firefox */
+  url('iconfont/logo/logo.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('iconfont/logo/logo.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+//手机端
+@media (min-width: 320px) and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .m-hidden {
+    display: none !important;
+  }
+  .m-display-block {
+    display: block !important;
+  }
+  .m-display-inline {
+    display: inline !important;
+  }
+  .m-w {
+    width: 100% !important;
+  }
+  .m-pull-left {
+    float: left !important;
+  }
+  .m-pull-right {
+    float: right !important;
+  }
+  .m-text-center {
+    text-align: center !important;
+  }
+}
+// tablet
+@media (min-width: 768px) and (max-width: 980px) {
+  .container {
+    width: 760px;
+  }
+  .t-hidden {
+    display: none !important;
+  }
+  .t-display-block {
+    display: block !important;
+  }
+}
+// pc
+@media (min-width: 768px) {
+  .pc-pull-left {
+    float: left !important;
+  }
+  .pc-pull-right {
+    float: right !important;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    width: 1366px;
+  }
+}
+//引入
+@import "components";
+@import "icon";
+@import "home";
+@import "nav";
+@import "start-main";
+@import "organizations-main";
+@import "organization-main";
+@import "profile-main";
+@import "task-main";
+@import "worktable-main";
+@import "message";
+@import "search-main";
+@import "preview-main";

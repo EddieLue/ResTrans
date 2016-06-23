@@ -1,0 +1,56 @@
+.organizations .main {
+  .organizations-right {
+    .organizations {
+      tr td {
+        min-height: 80px;
+      }
+      .organization-describe {
+        .name {
+          display: block;
+          color: $dark-blue;
+          font-size: 13px;
+        }
+        .name:hover {
+          color: $light-blue;
+        }
+        .description {
+          text-shadow: none;
+          font-size: 12px;
+          word-wrap: break-word;
+          margin: 3px 0;
+        }
+      }
+      .organization-member, .organization-task {
+        .value {
+          text-align: center;
+          color: $dark-grey;
+          margin: 3px 0;
+        }
+        .prop {
+          text-align: center;
+          font-size: 12px;
+        }
+      }
+      .organization-option {
+        div {
+          width: 100%;
+          text-align: center;
+        }
+        button {
+          vertical-align: middle;
+        }
+      }
+      .tips {
+        color: darken($light-grey, 10%);
+        text-shadow: none;
+        font-style: italic;
+        font-size: 12px;
+        margin: 5px;
+      }
+    }
+    .page-forward {
+      float: right;
+      margin: 5px;
+    }
+  }
+}

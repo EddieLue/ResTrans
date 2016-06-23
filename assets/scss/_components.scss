@@ -1,0 +1,465 @@
+/** 按钮 */
+.re-button {
+  color: $dark-grey;
+  border: 1px solid transparent;
+  background: lighten($light-grey, 8%);;
+  padding:5px 15px;
+  border-radius:1px;
+  text-shadow: none;
+  cursor: pointer;
+  margin: 0 2px;
+  transition: background .2s ease-out;
+  line-height: normal;
+  &:hover {
+    background: lighten($light-grey, 5%);
+    transition: background .2s ease-in;
+  }
+  &:active {
+    background: darken($light-grey, 5%);
+  }
+  & i{
+    font-family: "icon";
+    font-style: normal;
+    margin:0 1px;
+  }
+  /** 其他样式 */
+  @at-root .re-button-primary {
+    border-color: $blue;
+    color: $white;
+    background: $blue;
+    text-shadow: none;
+    transition:  background .2s ease-in, border .2s ease-out;
+    &:hover{
+      border: 1px solid $light-blue;
+      background: $light-blue;
+      transition:  background .2s ease-in, border .2s ease-in;
+    }
+    &:active {
+      transition: none;
+      border: 1px solid $dark-blue;
+      background: $dark-blue;
+    }
+  }
+  @at-root .re-button-warning {
+    border-color: $red;
+    color: $white;
+    background: $red;
+    text-shadow: none;
+    transition:  background .2s ease-in, border .2s ease-out;
+    &:hover{
+      border: 1px solid $light-red;
+      background: $light-red;
+      transition:  background .2s ease-in, border .2s ease-in;
+    }
+    &:active {
+      transition: none;
+      border: 1px solid $dark-red;
+      background: $dark-red;
+    }
+  }
+  @at-root .re-button-success {
+    border-color: $green;
+    color: $white;
+    background: $green;
+    text-shadow: none;
+    transition:  background .2s ease-in, border .2s ease-out;
+    &:hover{
+      border: 1px solid $light-green;
+      background: $light-green;
+      transition:  background .2s ease-in, border .2s ease-in;
+    }
+    &:active {
+      transition: none;
+      border: 1px solid $dark-green;
+      background: $dark-green;
+    }
+  }
+  @at-root .re-button-activity {
+    border-color: $orange;
+    color: $white;
+    background: $orange;
+    text-shadow: none;
+    transition:  background .2s ease-in, border .2s ease-out;
+    &:hover{
+      border: 1px solid $light-orange;
+      background: $light-orange;
+      transition:  background .2s ease-in, border .2s ease-in;
+    }
+    &:active {
+      transition: none;
+      border: 1px solid $dark-orange;
+      background: $dark-orange;
+    }
+  }
+  @at-root a.re-button {
+    display: inline-block;
+    text-decoration: none;
+  }
+  /** 按钮大小 */
+  @at-root .re-button-xs{
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+  @at-root .re-button-l{
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+  &:disabled {
+    cursor: no-drop;
+    background: $light-grey;
+    color: $grey;
+    border: 1px solid $light-grey;
+  }
+}
+/** 输入框 */
+.re-input {
+  border: 1px solid $light-grey;
+  border-radius: 0px;
+  margin: 5px;
+  padding: 5px 10px;
+  width: 12em;
+  box-shadow: 0 0 1px $light-grey;
+  transition: box-shadow .2s ease-out, border-color .2s ease-out;
+  color: $grey;
+  box-sizing: border-box;
+  &:hover {
+    box-shadow: 0 0 1px $grey;
+    transition: box-shadow .2s ease-in;
+  }
+  &:focus {
+    color: $light-blue;
+    border-color:$light-blue;
+    box-shadow: 0 0 1px $light-blue;
+    transition: box-shadow .2s ease-in, border-color .2s ease-out, color .2s ease-in;
+  }
+  @at-root .re-input-warning {
+    //todo
+  }
+  @at-root .re-input-xs {
+    font-size: 14px;
+    width: 14em;
+    padding: 5px;
+  }
+  @at-root .re-input-l {
+    font-size: 16px;
+    width: 16em;
+    padding: 8px;
+  }
+  @at-root .re-input-error {
+    border: 1px solid $light-red;
+    &:focus {
+      color: $light-red;
+      border-color:$light-red;
+      box-shadow: 0 0 1px $light-red;
+    }
+  }
+  &:disabled {
+    cursor: no-drop;
+  }
+  @at-root .no-margin {
+    margin: 0;
+  }
+  @at-root .width100 {
+    width: 100%;
+  }
+}
+/** textarea输入框 */
+.re-textarea {
+  resize: none;
+  border: 1px solid $light-grey;
+  box-shadow: 0 0 1px $light-grey;
+  transition: box-shadow .3s ease-out, border-color .3s ease-out;
+  color: $grey;
+  &:hover {
+    box-shadow: 0 0 1px $grey;
+    transition: box-shadow .3s ease-in;
+  }
+  &:focus {
+    border-color:$light-blue;
+    box-shadow: 0 0 1px $light-blue;
+    color: $light-blue;
+    transition: box-shadow .3s ease-in;
+    transition: border-color .3s ease-out;
+  }
+}
+/** 工作台译文输入框 */
+.re-worktable-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+  border: none;
+  background: darken($page-background, 10%);
+  padding: 5px;
+  font-size: 13px;
+  border: 1px solid darken($page-background, 10%);
+  transition: .2s background cubic-bezier(0,.54,0,.99);
+  &::-webkit-input-placeholder {
+    color: darken($page-background, 50%);
+  }
+  &:hover {
+    transition: .2s background cubic-bezier(0,.54,0,.99);
+    background: darken($page-background, 5%);
+  }
+  &:focus {
+    transition: .2s background cubic-bezier(0,.54,0,.99);
+    background: darken($page-background, 15%);
+    border: 1px dotted darken($page-background, 20%);
+  }
+}
+
+/** 栅格 */
+@mixin grid-base {
+  box-sizing: border-box;
+ &.h {width: 50%;}
+ &.w {width: 100%;}
+}
+.r {
+  overflow: hidden;
+  padding: 3px;
+}
+.w {
+  width: 100%;
+}
+.g10 {
+  &.c1 {width: 10%;}
+  &.c2 {width: 20%;}
+  &.c3 {width: 30%;}
+  &.c4 {width: 40%;}
+  &.c6 {width: 60%;}
+  &.c7 {width: 70%;}
+  &.c8 {width: 80%;}
+  &.c9 {width: 90%;}
+  @include grid-base;
+}
+.g8 {
+  &.c1 {width: 12.5%;}
+  &.c2 {width: 25%;}
+  &.c3 {width: 37.5%;}
+  &.c5 {width: 62.5%;}
+  &.c6 {width: 75%;}
+  &.c7 {width: 87.5%;}
+  @include grid-base;
+}
+.g6 {
+  &.c1 {width: 16.6666667%;}
+  &.c2 {width: 33.3333333%;}
+  &.c4 {width: 66.6666668%;}
+  &.c5 {width: 83.3333335%;}
+  @include grid-base;
+}
+.c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .h, .w {
+  float: left;
+  padding:5px;
+}
+/** 头像 */
+@mixin avatar-username-outer($px) {
+  display: inline-block;
+  overflow: hidden;
+  .avatar-img {
+    box-shadow: 0 0 1px $grey;
+    border-radius: 2px;
+  }
+  &:hover .username {
+    color: $light-blue;
+  }
+}
+@mixin avatar($size, $px) {
+  float:left;
+  height: $size;
+  width: $size;
+  margin: $px;
+}
+@mixin username($lineHeight, $px) {
+  float: left;
+  font-size: $px;
+  line-height: $lineHeight;
+  margin-left: 5px;
+  color: $dark-blue;
+}
+.avatar-1x {
+  .avatar-img {
+    @include avatar(32px, 3px);
+  }
+  .username {
+    @include username(40px, 12px);
+  }
+  @include avatar-username-outer(3px);
+}
+.avatar-2x {
+  .avatar-img {
+    @include avatar(64px, 5px);
+  }
+  .username {
+    @include username(75px, 20px);
+  }
+  @include avatar-username-outer(5px);
+}
+.avatar-3x {
+  .avatar-img {
+    @include avatar(128px, 8px);
+  }
+  .username {
+    @include username(144px, 28px);
+  }
+  @include avatar-username-outer(8px);
+}
+/**  表格默认 */
+.re-table {
+  border-collapse: collapse;
+  box-shadow: 0 0 1px 1px $light-grey;
+  th, td {float: none;}
+  thead tr {
+    background: lighten($light-grey, 4%);
+    color: lighten($dark-blue, 5%);
+  }
+  tbody {
+    & tr {
+      padding: 5px 0;
+      color: $grey;
+      border-bottom: 1px dotted $light-grey;
+      transition: color .2s ease-out;
+      & td {
+        height: 100%;
+        font-size: 12px;
+        a {
+          font-size: 12px;
+          color: $light-blue;
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+}
+/** 弹出窗+对话框 */
+.re-dialog {
+  position: fixed;
+  top:0;left:0;
+  z-index: 9999;
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.8);
+  .dialog-inner {
+    display: table-cell;
+    vertical-align: middle;
+    .dialog-content {
+      background: $white;
+      padding: 10px 0;
+      opacity: 1;
+      .dialog-header, .dialog-body, .dialog-footer {
+        float: none;
+        margin: 0 auto;
+        text-shadow: none;
+      }
+      .dialog-header {
+        text-align: left;
+        font-size: 20px;
+      }
+      .dialog-body {
+        font-size: 12px;
+        color: $dark-grey;
+        text-align: left;
+      }
+      .dialog-footer {
+        text-align: right;
+      }
+    }
+  }
+}
+/** 表单 */
+.re-form {
+  position: relative;
+  .field {
+    margin: 5px 0;
+    color: $dark-grey;
+    text-shadow: none;
+    .field-prop {
+      line-height: 30px;
+    }
+    .field-values {
+      line-height: 30px;
+      .re-input {margin: 0;}
+      .re-input[type=number] {width: 60px;}
+      .re-textarea {
+        padding: 5px;
+        max-width: 100%;
+        max-height: 500px;
+        resize: both;
+      }
+      input[type=radio] {
+        vertical-align: middle;
+        margin: 0 5px 0 10px;
+      }
+      input[type=checkbox] {
+        vertical-align: middle;
+        margin: 0 5px 0 10px;
+      }
+    }
+    .field-desc {
+      margin-left: 5px;
+      clear: both;
+      font-size: 12px;
+      font-style: italic;
+      color: $grey;
+    }
+  }
+}
+.re-select {
+  padding: 5px;
+  border: none;
+  color: $dark-grey;
+  box-shadow: 0 0 2px 1px $light-grey;
+  border-radius: 0;
+}
+/** 通知 */
+.notifications {
+  position: fixed;
+  right: 0;
+  top: 50px;
+  z-index: 10000;
+  width: 440px;
+  margin-right: -220px;
+  .notification {
+    margin-left: 220px;
+    font-size: 14px;
+    background: darken($dark-grey, 10%);
+    color: $white;
+    text-shadow: none;
+    width: 200px;
+    padding: 8px 10px;
+    box-shadow: 0 0 1px 1px $dark-grey;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    &.show {
+      transition: transform .5s cubic-bezier(0,.54,0,.99);
+      animation: showNoti 5s cubic-bezier(0,.54,0,.99);
+      animation-fill-mode: forwards;
+    }
+    &.show:hover {
+      transform: scale( .95 );
+      transition: transform .5s cubic-bezier(0,.54,0,.99);
+    }
+    &.primary {
+    background: $dark-blue;
+    box-shadow: 0 0 1px 1px $dark-blue;
+    }
+    &.warning {
+    background: $dark-red;
+    box-shadow: 0 0 1px 1px $dark-red;
+    }
+    &.success {
+    background: $dark-green;
+    box-shadow: 0 0 1px 1px $dark-green;
+    }
+  }
+}
+@keyframes showNoti{
+  0%{ margin-left: 220px; }
+  10%{ margin-left: -10px; }
+  90%{ margin-left: -10px; }
+  100%{ margin-left: 221px; }
+}

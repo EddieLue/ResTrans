@@ -1,0 +1,78 @@
+.list .main {
+  .start-left {
+    .working-activities {
+      margin-top: 10px;
+    }
+  }
+  .start-right {
+    .tasks {
+      tbody tr td {
+        min-height: 100px;
+      }
+      .task-summary {
+        vertical-align: top;
+        position: relative;
+        .title {
+          color: $dark-blue;
+          padding: 0;
+          font-size: 13px;
+          &:hover {color: $light-blue;}
+        }
+        .description {
+          font-size: 12px;
+          word-wrap: break-word;
+          margin: 3px 0 25px;
+          word-wrap: break-word;
+        }
+        .publish-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          box-sizing: border-box;
+          line-height: 20px;
+          padding: 0 5px;
+          overflow: hidden;
+          text-shadow: none;
+          .info {
+            float: left;
+            & a, & span {
+              color: $grey;
+              font-size: 12px;
+            }
+          }
+          .datetime {
+            float: right;
+            font-size: 12px;
+            color: $light-blue;
+          }
+        }
+      }
+      .task-language {
+        text-align: center;
+        span {
+          font-size: 12px;
+          display: block;
+        }
+        .original-language {
+          color: $blue;
+        }
+      }
+      .task-percentage {
+        text-align: center;
+        .percent {
+          font-size: 20px;
+          color: $dark-grey;
+          margin: 5px 0;
+        }
+        .prop {
+          font-size: 12px;
+        }
+      }
+    }
+    .page-forward {
+      float: right;
+      margin: 5px;
+    }
+  }
+}

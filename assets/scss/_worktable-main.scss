@@ -1,0 +1,651 @@
+/** 顶部导航 | 工具栏 */
+.language-selector {
+  max-height: 500px;
+  overflow-y: auto;
+  .selector .file-name {
+    line-height: 35px;
+    font-size: 16px;
+    color: $light-blue;
+  }
+}
+.before-switch-file .tip {
+  font-size: 13px;
+}
+.before-switch-file .options {
+  line-height: 40px;
+}
+.worktable {
+  height: 100%;
+  text-shadow: none;
+  /** for firefox */
+  display: table-cell;
+  .top {
+    width: 100%;
+    height: 30px;
+    background: $white;
+    box-shadow: 0 1px 1px $grey;
+    transition: box-shadow .2s ease-out;
+    .nav {
+      height: 100%;
+      .toggle {
+        display: block;
+        height: 100px;
+        font-size: 12px;
+        color: $light-blue;
+        background: $white;
+        -webkit-writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
+        writing-mode: vertical-lr;
+        font-family: "Arial" !important;
+        letter-spacing: 1.5px;
+        width: 25px;
+        line-height: 25px;
+        text-align: center;
+        cursor: default;
+        &:hover {border-right: 3px solid $light-blue;}
+        &:active {background: $light-grey;}
+        border-right: 3px solid lighten($light-blue, 10%);
+        box-shadow: 1px 1px 1px $grey;
+      }
+      .sidebar-main {
+        position: fixed;
+        top:0;
+        height: 100%;
+        background: $white;
+        box-shadow: 1px 0 1px $grey;
+        width: 490px;
+        left: -490px;
+        .toggle-sidebar {
+          position: absolute;
+          top: 30px;
+          left: 100%;
+          z-index: 2;
+        }
+      }
+      .fm-main {
+        .main-top {
+          .task-belong {
+            a {
+              color: $light-blue;
+              font-size: 12px;
+              &:hover {
+                color: $blue;
+              }
+            }
+            span {
+              color: $light-grey;
+            }
+            float: left;
+            padding: 0 5px;
+          }
+          line-height: 30px;
+          overflow: hidden;
+        }
+        .outside {
+          .select-set {
+            position: relative;
+            .current-set {
+              margin: 5px 10px 5px 5px;
+              font-size: 22px;
+              color: $dark-grey;
+              i {
+                vertical-align: middle;
+              }
+              &:hover {color: $grey;}
+            }
+            ul.set-list {
+              position: absolute;
+              top: 100%;
+              left: 3px;
+              background: $white;
+              box-shadow: 0 0 2px 1px $grey;
+              z-index: 3;
+              max-height: 500px;
+              overflow-y: auto;
+              display: none;
+              li.set a {
+                display: block;
+                color: $grey;
+                padding: 8px 30px 8px 10px;
+                font-size: 12px;
+                &:hover {background: lighten($light-grey, 5%);}
+              }
+            }
+          }
+          .upload-files {
+            height: 32px;
+            width: 80px;
+            position: absolute;
+            left: 100%;
+            margin-left: -90px;
+            top: 32px;
+            &:hover {
+              cursor: pointer;
+              .select-files {
+                background: $light-blue;
+                transition: background .2s ease-in;
+              }
+            }
+            &:active {
+              .select-files {
+                background: $dark-blue;
+              }
+            }
+            .select-button {
+              width: 100%;
+              height: 100%;
+              opacity: 0;
+              z-index: 5;
+            }
+            .select-files {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              line-height: 32px;
+              color: $white;
+              font-size: 13px;
+              text-align: center;
+              background: $blue;
+              transition: background .2s ease-in;
+            }
+          }
+        }
+        .files-options {
+          margin-top: 10px;
+          text-align: center;
+          border-top: 1px dotted $light-grey;
+          a {
+            font-size: 13px;
+            color: $grey;
+            border-right: 1px dotted $light-grey;
+            &:hover {
+              color: darken($grey, 10%);
+            }
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+        .file-list {
+          overflow-y: auto;
+          .files {
+            .no-files .tips {
+              text-align: center;
+              font-size: 13px;
+              color: $grey;
+            }
+            .no-files, .temporary-file, .file {
+              border-top: 1px dotted $light-grey;
+            }
+            .temporary-file {
+              overflow: hidden;
+              position: relative;
+              height: 50px;
+              .name {
+                position: absolute;
+                top: 0;
+                left: 5px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 15px;
+                color: darken($grey, 10%);
+              }
+              .status {
+                position: absolute;
+                top: 0;
+                right: 5px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 12px;
+                color: lighten($grey, 10%);
+                span {
+                  margin-right: 5px;
+                  font-size: 12px;
+                }
+              }
+            }
+            .file {
+              .file-meta {
+                .name {
+                  float: left;
+                  font-size: 15px;
+                  color: $light-blue;
+                  line-height: 50px;
+                  .file-info {
+                    color: lighten($grey, 10%);
+                    font-size: 12px;
+                    margin: 0 5px;
+                  }
+                }
+                .last-update {
+                  float: right;
+                  line-height: 52px;
+                  font-size: 12px;
+                  color: $grey;
+                  .time, .user {
+                    font-size: 12px;
+                    color: $grey;
+                  }
+                }
+                display: block;
+                position: relative;
+                overflow: hidden;
+              }
+              .file-options {
+                line-height: 35px;
+                height: 0;
+                overflow: hidden;
+                transition: height .2s ease-out;
+                button {margin: 0 5px 0 0;}
+              }
+              &:hover {
+                background: lighten($light-grey, 10%);
+                transition: background .2s ease-in;
+                .file-options {
+                  height: 35px;
+                  transition: height .2s ease-in;
+                }
+              }
+              border-top: 1px dotted $light-grey;
+              transition: background .2s ease-out;
+              padding: 0 5px;
+            }
+          }
+        }
+      }
+      .title {
+        margin: 0 10px;
+        line-height: 45px;
+        font-size: 22px;
+        color: $dark-grey;
+      }
+      .intro {
+        font-size: 12px;
+        color: $grey;
+        vertical-align: baseline;
+      }
+      .glossary-main {
+        ul.glossary-list {
+          width: 470px;
+          margin: 0 10px;
+          li.glossary {
+            input {
+              width: 100%;
+            }
+            .options {
+              text-align: center;
+            }
+            form .options {
+              padding: 18px 0;
+            }
+            form .original {
+              border: none;
+            }
+            &:hover {
+              background: lighten($light-grey, 5%);
+            }
+            .original, .target {
+              font-size: 13px;
+              color: $grey;
+              padding: 10px;
+            }
+            .original {
+              border-right: 1px dashed $light-grey;
+            }
+          }
+        }
+        .toggle-sidebar {
+          top: 130px;
+          height: 80px;
+          color: $light-purple;
+          &:hover {border-right: 3px solid $light-purple;}
+          border-right: 3px solid lighten($light-purple, 10%);
+        }
+      }
+      .cm-main {
+        .change-options {
+          text-align: right;
+          padding: 0 20px 10px 20px;
+        }
+        .change-list {
+          width: 98%;
+          margin: 10px 1%;
+          .change {
+            .original {
+              color: $dark-grey;
+              font-size: 13px;
+              padding: 5px;
+              .re-textarea {
+                width: 100%;
+                padding: 3px;
+              }
+            }
+            .delete {
+              font-style: italic;
+              font-size: 12px;
+            }
+            .pos {
+              color: $grey;
+              font-size: 12px;
+              padding: 5px;
+              text-align: center;
+              line-height: 25px;
+              .re-input {
+                width: 100%;
+              }
+            }
+            .options {
+              text-align: center;
+            }
+          }
+        }
+        .toggle-sidebar {
+          top: 210px;
+          height: 100px;
+          color: $light-orange;
+          &:hover {border-right: 3px solid $light-orange;}
+          border-right: 3px solid lighten($light-orange, 10%);
+        }
+      }
+      .show-sidebar-main {
+        left: 0;
+        transition: left .5s cubic-bezier(0,.54,0,.99);
+        z-index: 10;
+      }
+      .hide-sidebar-main {
+        left: -490px;
+        transition: left .5s cubic-bezier(0,.54,0,.99);
+      }
+      .file-language {
+        float: left;
+        overflow: hidden;
+        .original-language, .target-language {
+          line-height: 30px;
+          float: left;
+          font-size: 12px;
+          padding: 0 5px;
+          background: $light-grey;
+          color: $dark-grey;
+        }
+        .original-language {
+          background: lighten($dark-blue, 10%);
+          color: $white;
+        }
+      }
+      .current-file {
+        float: left;
+        color: $grey;
+        line-height: 30px;
+        border: none;
+        width: 300px;
+        text-align: center;
+        padding: 0 10px;
+        height: 30px;
+        font-size: 13px;
+        &::-webkit-input-placeholder {
+          color: darken($light-grey, 10%);
+        }
+        &:focus {
+          background: lighten($light-grey, 5%);
+          color: $dark-grey;
+          transition: background .2s cubic-bezier(0,.54,0,.99);
+        }
+      }
+      float: left;
+    }
+    .tools {
+      float: right;
+      .toolkit {
+        float: left;
+        .tool {
+          line-height: 30px;
+          a.toggle {
+            display: block;
+            span {
+              font-size: 12px;
+              color: $dark-grey;
+            }
+            i {
+              color: $dark-grey;
+            }
+            .down-arrow {
+              transform-origin: 50% 35%;
+              transition: rotate(360deg);
+              transition: transform .2s ease-out;
+            }
+            .down-arrow-on {
+              transform-origin: 50% 35%;
+              transform: rotate(180deg);
+              transition: transform .2s ease-in;
+            }
+          }
+          margin: 0 15px;
+          float: left;
+        }
+        .dropdown {
+          .subtools {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            width: 200%;
+            background: $white;
+            box-shadow: 1px 1px 1px $grey;
+            border-top: 1px solid $light-grey;
+            display: none;
+            .subtool {
+              line-height: 32px;
+              a {
+                font-size: 12px;
+                display: block;
+                padding: 0 5px 0 10px;
+                color: $dark-grey;
+              }
+              &:hover {
+                background: $light-grey;
+                transition: background .2s cubic-bezier(0,.54,0,.99);
+              }
+            }
+            padding: 5px 0;
+          }
+          position: relative;
+        }
+      }
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .wt-main {
+    background: $light-grey;
+    height: 100%;
+    .wt-nav-loading {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      font-size: 12px;
+      color: $light-grey;
+      background: $grey;
+      border-radius: 2px;
+      line-height: 25px;
+      padding: 0 10px;
+      opacity: .9;
+      span, pre {float: left;}
+      pre {
+        font-size: 20px;
+      }
+      .loading-text {
+        font-size: 13px;
+      }
+    }
+    .save {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+    }
+    .page {
+      .no-row {
+        text-align: center;
+        color: darken($page-background, 50%);
+        font-size: 12px;
+      }
+      .load-row {
+        width: 100%;
+        text-align: center;
+        a {
+          font-size: 12px;
+          color: $blue;
+          &:hover {color: $dark-blue;}
+        }
+      }
+      .row {
+        margin: 10px 0;
+        .original-text .content,
+        .candidate-translations .translation .content,
+        .best-translation .content,
+        .re-worktable-textarea {
+          font-family: "Segoe UI",
+                       "Calibri",
+                       "PingFang SC",
+                       "Hiragino Sans GB",
+                       "Microsoft JhengHei",
+                       "Source Han Sans SC",
+                       Arial,
+                       sans-serif;
+          letter-spacing: 0.3px;
+          line-height: 1.4;
+          word-wrap: break-word;
+        }
+        .original-text {
+          .content {
+            color: $dark-grey;
+            font-size: 14px;
+          }
+          .no-need {
+            text-decoration: underline;
+          }
+          margin-bottom: 10px;
+        }
+        .para-tools {
+          a, span {
+            font-size: 12px;
+            color: $grey;
+          }
+          a:hover {
+            color: $dark-grey;
+          }
+          .pre-row i {
+            margin-top: -4px;
+          }
+          .line-number {
+            color: $light-blue;
+          }
+          overflow: hidden;
+        }
+        .best-translation {
+          .content {
+            color: $blue;
+            font-size: 13px;
+          }
+          .modify, .revoke, .show-candidates {
+            font-size: 12px;
+            color: $grey;
+            margin: 0 8px 0 0;
+            &:hover {
+              color: $dark-grey;
+            }
+          }
+          .contributor-list {
+            color: $grey;
+            font-size: 12px;
+            a {
+              font-size: 12px;
+              color: $grey;
+              &:hover {
+                color: $dark-grey;
+              }
+            }
+          }
+          padding: 5px;
+        }
+        .candidate-translations {
+          .translation {
+            color: darken($page-background, 50%);
+            padding: 8px 5px 5px;
+            transition: background .2s ease-out;
+            border: 1px solid $page-background;
+            .content {
+              font-size: 13px;
+            }
+            .panel {
+              .options {
+                float: left;
+              }
+              .meta {
+                float: right;
+                text-align: right;
+              }
+              a, span {
+                font-size: 12px;
+                color: $grey;
+              }
+              a:hover {
+                color: $dark-grey;
+              }
+              padding-top: 3px;
+              line-height: 20px;
+              height: 0;
+              transition: height .2s ease-out;
+              overflow: hidden;
+            }
+            &:hover {
+              .panel {
+                height: 20px;
+                transition: height .2s ease-in;
+              }
+              border: 1px dotted darken($page-background, 40%);
+              transition: background .2s ease-in;
+              background: darken($page-background, 10%);
+            }
+          }
+        }
+      }
+      box-sizing: border-box;
+      padding: 50px 45px 20px;
+      margin: 0 auto;
+      width: 760px;
+      min-height: 100%;
+      background: $page-background;
+      box-shadow: 0 0 2px 1px $grey;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .worktable .top .nav .sidebar-main {
+    width: 285px;
+    left: -285px;
+  }
+  .worktable .top .nav .show-sidebar-main {
+    left: 0;
+  }
+  .worktable .top .nav .hide-sidebar-main {
+    left: -285px;
+  }
+  .worktable .wt-main .page {
+    width: 100%;
+  }
+  .worktable .top .nav .current-file {
+    width: 100%;
+  }
+  .worktable .top .tools .toolkit .dropdown .subtools {
+    width: 100px;
+  }
+  .worktable .top .tools .toolkit .dropdown {
+    margin: 0 8px;
+  }
+  .worktable .top .tools .toolkit .tool a {
+    padding: 0 5px;
+  }
+}

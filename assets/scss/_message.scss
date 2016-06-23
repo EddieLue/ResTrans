@@ -1,0 +1,183 @@
+.conversations {
+  margin: 10px 0;
+  max-height: 650px;
+  overflow-x: auto;
+  overflow-y: visible;
+  .conversation {
+    padding: 5px 0;
+    border-bottom: 1px dotted $light-grey;
+    .msg-last-datetime {
+      float: right;
+      line-height: 40px;
+      font-size: 12px;
+      color: $light-blue;
+    }
+    .msg-last-content {
+      clear: both;
+      font-size: 13px;
+      word-wrap: break-word;
+    }
+    .msg-meta {
+      line-height: 2.5;
+      .unread {
+        float: left;
+        color: $green;
+        margin-top: 5px;
+        span {
+          line-height: 25px;
+          font-size: 12px;
+          vertical-align: bottom;
+        }
+      }
+      .options {
+        float: right;
+      }
+      overflow: hidden;
+    }
+  }
+  .loading-conversations {
+    padding: 50px 0;
+    text-align: center;
+  }
+  .more-conversations{
+    text-align: center;
+    a {
+      display: block;
+      font-size: 12px;
+      color: $dark-blue;
+      line-height: 20px;
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
+.dialogue {
+  margin: 10px 0;
+  .diag-messages {
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 0 20px;
+    .message {
+      .msg-content {
+        box-shadow: 0 0 2px 1px $light-grey;
+        padding: 8px;
+        font-size: 12px;
+        background: $light-blue;
+        color: $white;
+        word-wrap: break-word;
+      }
+      .unread {
+        background: darken($green, 5%);
+        color: $white;
+      }
+      .msg-options {
+        visibility: hidden;
+        .datetime {
+          font-size: 12px;
+          color: darken($light-grey, 15%);
+        }
+        .slash {
+          font-size: 13px;
+          color: $light-grey;
+          padding: 0 5px;
+        }
+        .delete {
+          font-size: 12px;
+          color: $red;
+          &:hover {
+            color: $light-red;
+          }
+        }
+      }
+      &:hover .msg-options {
+        visibility: visible;
+      }
+    }
+    .otherside {
+      clear:both;
+      float: left;
+      .msg-content {
+        margin: 0 3px 0 42px;
+      }
+      .msg-options {
+        float: right;
+        margin: 3px;
+      }
+    }
+    .myself {
+      clear: both;
+      float: right;
+      text-align: right;
+      .sender-avatar {
+        .avatar-img {float: right;}
+        .username {margin-right: 5px;}
+      }
+      .msg-content {
+        margin: 0 42px 0 3px;
+      }
+      .msg-options {
+        float: right;
+        margin: 3px 45px 3px 3px;
+      }
+    }
+    .more-messages {
+        text-align: center;
+        font-size: 12px;
+        width: 100%;
+        line-height: 20px;
+      span {
+        font-size: 12px;
+        color: $blue;
+      }
+      a {
+        font-size: 12px;
+        color: $dark-blue;
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+  .message-writer {
+    width: 100%;
+    .content-input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 5px;
+    }
+  }
+  overflow: hidden;
+}
+.write-message {
+  .search-area {
+    input {
+      vertical-align: middle;
+      margin: 0;
+      width: 50%;
+    }
+    a.receiver {
+      display: none;
+      vertical-align: middle;
+    }
+    .receiver-placeholder {
+      color: darken($light-grey, 15%);
+      font-size: 12px;
+    }
+  }
+  .content {
+    .content-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+      resize: vertical;
+      max-height: 500px;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .dialogue .diag-messages {
+    max-height: 250px;
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "restrans/restrans",
+    "description": "A collaborative translation tool.",
+    "type": "project",
+    "license": "Apache-2.0",
+    "config": {
+        "preferred-install": "dist"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "ircmaxell/password-compat": "^1.0",
+        "phpmailer/phpmailer": "^5.2",
+        "hashids/hashids": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ResTrans\\Core\\": "core/"
+        },
+        "classmap": ["core/Exception.php"]
+    }
+}

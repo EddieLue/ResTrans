@@ -1,0 +1,104 @@
+.preview {
+  background: lighten($light-grey, 5%);
+  height: 100%;
+  .nav {
+    height: 35px;
+    background: $white;
+    box-shadow: 1px 0 1px $grey;
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    .container {
+      height: 100%;
+      overflow: hidden;
+    }
+    .return {
+      float: left;
+      border-radius: 0;
+      height: 100%;
+      line-height: 35px;
+      font-size: 13px;
+      background: $blue;
+      color: $white;
+      padding: 0 15px;
+      text-shadow: none;
+      transition: color .2s ease-out;
+      &:hover {
+        color: lighten($light-grey, 5%);
+        transition: color .2s ease-out;
+      }
+    }
+    .title {
+      float: left;
+      margin: 0 5px;
+      line-height: 35px;
+      font-size: 13px;
+      color: $dark-grey;
+      text-shadow: none;
+    }
+    .tip {
+      text-shadow: none;
+      float: right;
+      line-height: 35px;
+      font-size: 12px;
+      text-shadow: none;
+      color: $dark-grey;
+      font-style: italic;
+    }
+  }
+  .page {
+    height: 100%;
+    margin: 0 auto;
+    background: $page-background;
+    width: 760px;
+    box-shadow: 0 0 2px 1px $grey;
+    .rows {
+      padding-top: 50px;
+    }
+    .row {
+      margin: 0 50px;
+      .no-best-translation {
+        text-shadow: none;
+        color: $light-blue;
+        font-style: italic;
+        font-size: 12px;
+      }
+      .source-text {
+        font-size: 13px;
+        color: darken($page-background, 50%);
+        word-wrap: break-word;
+      }
+      .best-translation-text {
+        font-size: 12px;
+        color: $grey;
+        text-shadow: none;
+        margin-top: 3px;
+        word-wrap: break-word;
+      }
+    }
+    .no-lines, .loading-lines, .load-lines {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+    }
+    .no-lines, .loading-lines {
+      color: darken($page-background, 50%);
+    }
+    .load-lines {
+      color: $blue;
+      &:hover {
+        color: $light-blue;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .preview .nav .container {
+    width: 100%;
+  }
+  .preview .page {
+    width: 100%;
+  }
+}

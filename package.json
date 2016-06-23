@@ -1,0 +1,11 @@
+{
+  "name": "restrans",
+  "version": "1.0.0-a",
+  "description": "",
+  "author": "KMC",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
+  }
+}

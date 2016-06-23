@@ -1,0 +1,81 @@
+.install {
+  height: 100%;
+}
+.install .top {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 50px;
+  overflow: hidden;
+  text-align: center;
+}
+.install .logo:before {
+  font-size: 60px;
+}
+.form {
+  width: 500px;
+  margin: 0 auto;
+}
+.form input {
+  width: 100%;
+  margin: 0;
+}
+.hr {
+  width: 500px;
+  border-bottom: 1px solid #03a9f4;
+  margin: 20px 0;
+  position: relative;
+}
+.hr .text {
+  position: absolute;
+  top: -15px;
+  text-align: center;
+  width: 500px;
+  height: 30px;
+  line-height: 30px;
+  text-shadow: none;
+}
+.hr .text span {
+  padding: 0 20px;
+  background: #fff;
+  color: #03a9f4;
+  font-style: italic;
+  font-size: 12px;
+}
+.form input.input-split {
+  width: 240px;
+  margin: 5px 0;
+}
+.form input.input-split-first {
+  width: 240px;
+  margin-right: 15px;
+}
+.notice {
+  background: #eee;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 12px;
+  color: #9e9e9e;
+  text-shadow: none;
+  font-style: italic;
+}
+.warning {
+  background: #e51c23;
+  color: white;
+}
+.success {
+  background: #64dd17;
+  color: white;
+}
+button.install-now {
+  display: block;
+  margin: 0 auto 15px;
+}
+.footer {
+  display: block;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #9e9e9e;
+  text-shadow: none;
+}

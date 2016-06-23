@@ -1,0 +1,338 @@
+.nav-bar {
+  height: 35px;
+  width: 100%;
+  background: $white;
+  box-shadow: 1px 0 1px $grey;
+  border-bottom: 1px solid lighten($grey, 15%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:1000;
+  //base
+  .nav-logo{
+    display: inline-block;
+    height: 35px;
+    a {
+      color: $dark-blue;
+      font-size: 30px;
+      line-height: 32px;
+      display:block;
+      height: 100%;
+      &:before {
+        font-family: "restrans" !important;
+        content: "\e601";
+        text-shadow: 1px 1px  $white, 1px 1px $dark-grey;
+      }
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+  .nav-search {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 28px;
+    position: relative;
+    margin-right: 10px;
+    & i {
+      position: absolute;
+      top: 50%;
+      left:5px;
+      color: $grey;
+    }
+    & .nav-search-input {
+      border: none;
+      border-bottom: 2px solid $grey;
+      height: 26px;
+      width: 120px;
+      padding: 0 3px 0 25px;
+      transition: width .5s cubic-bezier(0,.54,0,.99);
+      font-size: 12px;
+      color: $grey;
+      &:focus {
+        color: $blue;
+        border-bottom: 2px solid $blue;
+        width: 180px;
+        transition: color .2s ease-in, width .5s cubic-bezier(0,.54,0,.99);
+      }
+    }
+  }
+
+  .nav {
+    display: inline-block;
+    vertical-align: top;
+    height: 35px;
+    margin-left: 10px;
+    & .left-nav {
+      & li {
+        float:left;
+        list-style: none;
+        & a{
+          line-height: 35px;
+          display: block;
+          height: 35px;
+          padding: 0 18px;
+          color: $dark-blue;
+          background: $white;
+          transition: background 0.3s ease-out;
+          & i {
+            font-size: 18px;
+          }
+          &:hover {
+            background: lighten($light-grey, 5%);
+          }
+        }
+      }
+      .nav-active a {
+        background: lighten($light-grey, 5%);
+      }
+    }
+
+    & .right-nav {
+      height: 100%;
+      &>li {
+        list-style: none;
+        float:left;
+        &>a {
+          display: block;
+          height: 35px;
+          padding: 0 10px;
+          line-height: 35px;
+          color: $dark-grey;
+          background: $white;
+          transition: background 0.2s ease-out;
+          text-shadow: none;
+          span {
+            font-size: 12px;
+          }
+          &:hover {
+            color: lighten($dark-grey, 8%);
+          }
+        }
+        &.dropdown {
+          position: relative;
+          &>.dropdown-list {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            width: 100%;
+            background: $white;
+            list-style: none;
+            box-shadow: 1px 1px 1px $grey;
+            padding: 5px 0;
+            border-top: 1px solid $light-grey;
+            box-sizing: border-box;
+            & li a {
+              display: block;
+              font-size: 12px;
+              padding: 8px 10px;
+              color: $dark-grey;
+              transition: background .2s ease-out, transform .2s linear;
+              text-shadow: none;
+              &:hover {
+                background: $light-grey;
+              }
+              &:active {
+                transform: scale(.95);
+                transition: transform .2s linear;
+              }
+            }
+            display: none;
+          }
+          .fixed {
+            width: 100px;
+          }
+          .avatar-img {
+            display: inline-block;
+            margin-right: 5px;
+            margin-top: 2px;
+          }
+        }
+        &.dropdown-container {
+          position: relative;
+          &>.container-inner {
+            position: absolute;
+            top: 35px;
+            right:0;
+            width: 400px;
+            background: $white;
+            box-shadow: 1px 1px 1px $grey;
+            display: none;
+            padding:10px;
+            border-top: 1px solid $light-grey;
+            .draft-list {
+              max-height: 300px;
+              overflow-y: auto;
+              .draft {
+                padding: 5px 0;
+                border-bottom: 1px dotted $light-grey;
+                .meta {
+                  a, span {
+                    font-size: 12px;
+                    color: $grey;
+                    padding: 0 3px;
+                  }
+                  a {color: $dark-grey;}
+                  a:hover {color: $blue;}
+                  .source-version {text-shadow: none;}
+                }
+                .options {
+                  text-align: right;
+                }
+                &:last-child {
+                  border-bottom: none;
+                }
+                &:hover {
+                  background: lighten($light-grey, 10%);
+                }
+              }
+            }
+          }
+        }
+        &.dropdown-workingset {
+          .load-drafts {
+            display: block;
+            font-size: 12px;
+            text-align: center;
+            text-shadow: none;
+            color: $blue;
+          }
+          .no-drafts {
+            font-size: 12px;
+            text-shadow: none;
+            color: $light-red;
+          }
+        }
+        &.dropdown-notifications {
+          .system-notifications .notification {
+            color: $dark-grey;
+            height: 40px;
+            .operation, .operation .sender, .operation .operation-text, .target, .actions .operation-status {
+              font-size: 12px;
+              line-height: 30px;
+            }
+            a {
+              color: $blue;
+              &:hover {
+                color: $light-blue;
+              }
+            }
+            .operation .sender {
+              display: inline;
+            }
+            .actions {
+              text-align: right;
+            }
+            &:hover {
+              background: lighten($light-grey, 10%);
+            }
+          }
+          .load-notifications, .no-notifications {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            text-shadow: none;
+            color: $blue;
+          }
+          .no-notifications {
+            text-align: left;
+            color: $light-red;
+          }
+          .load-notifications:hover {
+            color: $light-blue;
+          }
+        }
+        &>a>.down-arrow {
+          transform-origin: 50% 35%;
+          transform: rotate(360deg);
+          transition: transform .2s ease-out;
+        }
+        &>a>.down-arrow-on {
+          transform-origin: 50% 35%;
+          transform: rotate(180deg);
+          transition: transform .2s ease-in;
+        }
+      }
+    }
+  }
+}
+
+.secondary-nav {
+  list-style: none;
+  overflow: hidden;
+  & li {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: bottom;
+    & a {
+      font-size: 12px;
+      color: $grey;
+      text-shadow: none;
+      &:hover {
+        color: $dark-grey;
+      }
+
+    }
+    &.active a {
+      font-size: 24px;
+      color: $dark-blue;
+    }
+    &.single a {
+      font-size: 18px;
+      color: $dark-grey;
+    }
+  }
+}
+
+.footer-nav {
+  height: 24px;
+  width: 100%;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  margin-top: -24px;
+  box-shadow: 0 -1px 1px $grey;
+  background: $white;
+  .container {
+    &>span {
+      display: block;
+      font-size: 12px;
+      color: $dark-grey;
+      line-height: 24px;
+      &>a {
+        font-size: 12px;
+      }
+    }
+    &>.copyright {
+      float: left;
+    }
+    &>.license {
+      &>a {
+        color: $light-grey;
+        text-shadow: none;
+        &:hover {
+          color: $grey;
+        }
+      }
+      float: right;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .nav-bar {
+    .nav {
+      margin-left: 0;
+      .left-nav li a, .right-nav li a {
+        padding: 0 10px;
+      }
+      .right-nav {
+        li.dropdown-container .container-inner {
+          position: fixed;
+          width: 96%;
+          padding: 10px 2% 0 2%;
+        }
+      }
+    }
+  }
+}
