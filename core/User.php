@@ -125,7 +125,7 @@ class User {
     // 用户ID
     $setUserId = setcookie(
       "reuid",
-      $session["session_user"],
+      $this->appi->event->trigger("Proc:encodeUserIds", $session["session_user"]),
       $session["session_expire"],
       $this->appi->config["site_uri"],
       $domain,
@@ -179,7 +179,10 @@ class User {
     ) {
       throw new CommonException("get_login_cookies_failed");
     }
-    return ["user_id" => $cookie["reuid"], "session_id" => $cookie["ressid"]];
+    return [
+      "user_id" => $this->appi->event->trigger("Proc:decodeUserIds", $cookie["reuid"]),
+      "session_id" => $cookie["ressid"]
+    ];
   }
 
   public function isLogin( $quickly = true ) {
@@ -248,9 +251,21 @@ class User {
   }
 
   public function clearLoginCookie() {
+    $url = parse_url($this->appi->config["site_url"]);
+    $domain = $url["host"];
+    $secure = $url["scheme"] === "https";
+
     foreach ( $_COOKIE as $cookieName => $cookieValue ) {
       if ($cookieName !== "reuid" && $cookieName !== "ressid") continue;
-      setcookie( $cookieName, "", time() - 3600, $this->appi->config["site_uri"] );
+      setcookie(
+        $cookieName,
+        "",
+        time() - 3600,
+        $this->appi->config["site_uri"],
+        $domain,
+        $secure,
+        true
+      );
     }
 
     return $this;
@@ -382,7 +397,7 @@ class User {
       $this->setVerificationCode( $verCode, $lastUserId, $email );
 
       $app = $this->appi;
-      $verificationSubject = L("validate_email_subject");
+      $verificationSubject = Lang::get("validate_email_subject");
       $verificationBody = require realpath( CORE_PATH . "/Template/EmailVerification.php" );
 
       if ( ! $this->sendEmail( $email, $verificationSubject, $verificationBody ) ) {
@@ -435,6 +450,14 @@ class User {
 
     $mailer->Subject = $subject;
     $mailer->Body = $body;
+
+    $mailer->SMTPOptions = [
+      "ssl" => [
+        "verify_peer" => false,
+        "verify_peer_name" => false,
+        "allow_self_signed" => true
+      ]
+    ];
 
     return $mailer->send();
   }
@@ -611,7 +634,7 @@ class User {
       throw new CommonException( "retrieve_account_failed" );
     }
 
-    $retrieveSubject = L( "retrieve_email_subject" );
+    $retrieveSubject = Lang::get( "retrieve_email_subject" );
     $app = $this->appi;
     $retrieveBody = require_once realpath( CORE_PATH . "/Template/EmailRetrieve.php" );
 

@@ -297,6 +297,10 @@ class Setting extends ControllerConventions {
       true
     );
 
-    $route->jsonReturn($tasks ? $event->trigger("Proc:encodeTaskIds", $tasks) : []);
+    if ($tasks) {
+      $event->trigger("Proc:encodeTaskIds", $tasks);
+      $event->trigger("Proc:encodeOrganizationIds", $tasks);
+    }
+    $route->jsonReturn($tasks);
   }
 }

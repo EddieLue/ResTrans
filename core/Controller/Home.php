@@ -203,7 +203,7 @@ class Home extends ControllerConventions {
          ->init( "Home" );
   }
 
-  public function getSetNewPassword ($retrieveToken, View $view, App $app, Route $route) {
+  public function getSetNewPassword ($retrieveToken, View $view, App $app, Route $route, Event $event) {
     $this->loginCheck($event, $route);
 
     $model = $this->model("Start");

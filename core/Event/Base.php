@@ -14,6 +14,7 @@ namespace ResTrans\Core\Event;
 use ResTrans\Core;
 use ResTrans\Core\Route;
 use ResTrans\Core\View;
+use ResTrans\Core\Lang;
 use ResTrans\Core\Model\ModelConventions;
 use ResTrans\Core\SystemNotification;
 
@@ -96,7 +97,7 @@ class Base extends EventConventions {
   public function needLogin ($route = null) {
     if ((int)$this->appi->getOption("anonymous_access") === 1) return;
     $route && $route->jsonReturn(
-      ["status_short" => "not_logged_in", "status_detail" => Core\L("not_logged_in")]
+      ["status_short" => "not_logged_in", "status_detail" => Lang::get("not_logged_in")]
       );
     $this->trigger("Base:appEnd");
     exit();
@@ -112,7 +113,7 @@ class Base extends EventConventions {
     $route
       ->setResponseCode(400)
       ->jsonReturn(
-      ["status_short" => "has_logged_in", "status_detail" => Core\L("has_logged_in")]
+      ["status_short" => "has_logged_in", "status_detail" => Lang::get("has_logged_in")]
     );
     $this->trigger("Base:appEnd");
     exit();

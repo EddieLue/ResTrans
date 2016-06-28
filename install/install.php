@@ -167,7 +167,7 @@
         `member_create_task` TINYINT(3) UNSIGNED NOT NULL,
         `member_total` INT(10) UNSIGNED NOT NULL DEFAULT '0',
         `task_total` INT(10) UNSIGNED NOT NULL DEFAULT '0',
-        `discussion_total` INT(10) UNSIGNED NOT NULL,
+        `discussion_total` INT(10) UNSIGNED NOT NULL DEFAULT '0'
         PRIMARY KEY (`organization_id`)
       )
       COLLATE='utf8mb4_general_ci'
@@ -301,7 +301,7 @@
     $pdo->beginTransaction();
     $password = password_hash($adminPassword, PASSWORD_BCRYPT);
     $addAdminUser = $pdo->prepare(
-      "INSERT INTO `{$dbPrefix}users` (`name`, `email`, `password`, `signup`, `admin`) VALUES (?, ?, ?, ?, 1)");
+      "INSERT INTO `{$dbPrefix}users` (`name`, `email`, `password`, `signup`, `last_login`, `admin`) VALUES (?, ?, ?, ?, 0, 1)");
     $addAdminUser->bindValue(1, $adminUserName, PDO::PARAM_STR);
     $addAdminUser->bindValue(2, $adminEmail, PDO::PARAM_STR);
     $addAdminUser->bindValue(3, $password, PDO::PARAM_STR);
@@ -320,7 +320,7 @@
     if (!$addAdminUser ||!$addOptionData) throw new \Exception();
 
     $pdo->commit();
-  } catch (\Exception $e) {var_dump($e);
+  } catch (\Exception $e) {
     $pdo->rollBack();
     $send400();
     echo json_encode(["error_message" => "创建表时出现错误。", "error_code" => 2]);

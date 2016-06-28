@@ -78,9 +78,15 @@ class TxtParser extends ParserConventions {
   }
 
   public function check ($file) {
-    $fileInfo = new \finfo(FILEINFO_MIME_TYPE);
-    if ( !$fileInfo || $fileInfo->file($file["tmp_name"]) !== "text/plain" ) {
-      throw new Core\CommonException("check_file_type_failed");
+    if (class_exists("finfo", false)) {
+      $fileInfo = new \finfo(FILEINFO_MIME_TYPE);
+      if ($fileInfo->file($file["tmp_name"]) !== "text/plain" ) {
+        throw new Core\CommonException("check_file_type_failed");
+      }
+    } else {
+      if ($file["type"] !== "text/plain" || !preg_match("/(.+)\.txt$/i", $file["name"])) {
+        throw new Core\CommonException("check_file_type_failed");
+      }
     }
 
     return $this;

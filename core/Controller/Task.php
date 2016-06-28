@@ -608,7 +608,7 @@ class Task extends ControllerConventions {
       ->save();
 
     $data = ["set_id" => $setId, "name" => mb_substr($name, 0, 250, "UTF-8"),
-      "extension" => $extension, "path" => $parser->lastSavedFileName,
+      "extension" => $extension, "path" => substr($parser->lastSavedFileName, 0, 80),
       "uploader" => $userId, "size" => filesize($file["tmp_name"]), "line" => $parser->lines,
       "translatable" => $parser->translatable, "original_language" => $originalLanguage,
       "target_language" => $targetLanguage, "created" => time(), "last_contributor" => $userId,

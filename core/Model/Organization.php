@@ -440,9 +440,9 @@ class Organization extends ModelConventions {
     set("$property = ?")->
     where("user_id = ? AND organization_id = ?")->
     bindData(["1#int" => $value, "2#int" =>$userId, "3#int" => $orgId])->
-    // rowsPromise(1)->
+    rowsPromise(1)->
     ret(Query::TORF)->
-    throwException("update_user_privilege_failed")->
+    throwException($throw ? "update_user_privilege_failed" : null)->
     execute();
   }
 

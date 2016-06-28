@@ -1101,7 +1101,13 @@ class Org extends ControllerConventions {
 
     $propertyValue = $route->queryString($changeProperty, Core\Route::HTTP_PUT);
     $userId = $route->queryString("user_id", Core\Route::HTTP_PUT);
-    $model->updateUser($orgId, $userId, $changeProperty, $propertyValue, true);
+    $model->updateUser(
+      $orgId,
+      $event->trigger("Proc:decodeUserIds", $userId),
+      $changeProperty,
+      $propertyValue,
+      true
+    );
     $return = $route->phpInput("json");
 
     unset($return["change_prop"]);

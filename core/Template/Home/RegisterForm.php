@@ -15,7 +15,7 @@
             </label>
 <?php endif; ?>
             <label for="register-password" class="g10 c8">
-              <button id="show-password" class="re-button re-button-xs">显</button>
+              <button type="button" id="show-password" class="re-button re-button-xs">显</button>
               <input type="password" id="register-password" class="re-input re-input-l" tabindex="3" placeholder="密码">
             </label>
 
